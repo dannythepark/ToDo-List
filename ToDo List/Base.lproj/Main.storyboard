@@ -20,14 +20,35 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="V6s-JS-fVV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="V6s-JS-fVV" customClass="ListTableViewCell" customModule="ToDo_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V6s-JS-fVV" id="y9o-TN-Fh9">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAu-rH-viT">
+                                                    <rect key="frame" x="71" y="11" width="233" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVD-DN-2pc">
+                                                    <rect key="frame" x="16" y="10" width="24" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="rectangle" catalog="system"/>
+                                                    <state key="selected" image="checkmark.rectangle" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="checkToggled:" destination="V6s-JS-fVV" eventType="touchUpInside" id="gNd-uK-rSt"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="checkBoxButton" destination="IVD-DN-2pc" id="QIr-9x-Oaa"/>
+                                            <outlet property="nameLabel" destination="vAu-rH-viT" id="Ird-YA-cpI"/>
                                             <segue destination="Wde-BO-ooH" kind="show" identifier="ShowDetail" id="tdB-3Q-16g"/>
                                         </connections>
                                     </tableViewCell>
@@ -62,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939.13043478260875" y="69.642857142857139"/>
+            <point key="canvasLocation" x="937.5" y="68.661971830985919"/>
         </scene>
         <!--To Do Detail Table View Controller-->
         <scene sceneID="tfe-gL-gBw">
@@ -235,6 +256,8 @@
         <segue reference="tdB-3Q-16g"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="checkmark.rectangle" catalog="system" width="128" height="93"/>
+        <image name="rectangle" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
