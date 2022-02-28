@@ -1,6 +1,6 @@
 //
 //  ListTableViewCell.swift
-//  ToDo List
+//  ToDo List ///
 //
 //  Created by Danny Park on 2/27/22.
 //
@@ -15,11 +15,20 @@ protocol ListTableViewCellDelegate: class {
 
 class ListTableViewCell: UITableViewCell {
     
-    weak var delegate: ListTableViewCellDelegate?
+    
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var checkBoxButton: UIButton!
     
+    weak var delegate: ListTableViewCellDelegate?
+    
+    var toDoItem: ToDoItem! {
+        didSet {
+            nameLabel.text = toDoItem.name
+            checkBoxButton.isSelected = toDoItem.completed
+            
+        }
+    }
     
     @IBAction func checkToggled(_ sender: UIButton) {
         delegate?.checkBoxToggled(sender: self)

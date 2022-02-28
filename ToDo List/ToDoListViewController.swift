@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  ToDo List ////////
+//  ToDo List //////////
 //
 //  Created by Danny Park on 2/20/22.
 //
@@ -171,8 +171,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, Li
         print ("cellForRowAt was justr called for indexPath.row \(indexPath.row) ")
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListTableViewCell
         cell.delegate = self
-        cell.nameLabel.text = toDoItems[indexPath.row].name
-        cell.checkBoxButton.isSelected = toDoItems[indexPath.row].completed
+        cell.toDoItem = toDoItems[indexPath.row]
         return cell
     }
     
